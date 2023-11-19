@@ -8,6 +8,10 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 
+/**
+ * @author Alexander Barbosa
+ */
+
 @RegisterRestClient
 public interface RemoteServiceClient {
 

@@ -3,6 +3,10 @@ package com.redhat.test.rest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
+/**
+ * @author Alexander Barbosa
+ */
+
 @RegisterForReflection
 public class Person{
     @JsonProperty("firstName")
