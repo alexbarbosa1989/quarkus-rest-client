@@ -1,5 +1,13 @@
-# dg-client
+# quarkus-rest-client
 
+This application exposes a REST service that, based on the sent Request, consumes a remote REST API to store/retrieve data in a remote Data Grid Cluster. 
+To achieve that, the application exposes two REST Endpoints:
+
+- query/getData
+- query/putData
+
+
+## Quarkus basics
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
