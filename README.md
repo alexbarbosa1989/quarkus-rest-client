@@ -1,10 +1,55 @@
 # quarkus-rest-client
 
-This application exposes a REST service that, based on the sent Request, consumes a remote REST API to store/retrieve data in a remote Data Grid Cluster. 
+This application exposes a REST service that, based on the sent request, consumes a remote REST API to store/retrieve data in a remote Data Grid Cluster. 
 To achieve that, the application exposes two REST Endpoints:
 
 - query/getData
 - query/putData
+
+## Basic application execution
+
+## Start and configure Data Grid
+1. Create the **person** cache in your Data Grid installation :
+~~~
+<?xml version="1.0"?>
+<distributed-cache name="person" owners="2" mode="SYNC" statistics="true">
+	<encoding>
+		<key media-type="text/plain"/>
+		<value media-type="application/json"/>
+	</encoding>
+</distributed-cache>
+~~~
+Json format:
+~~~
+{
+  "person": {
+    "distributed-cache": {
+      "owners": "2",
+      "mode": "SYNC",
+      "statistics": true,
+      "encoding": {
+        "key": {
+          "media-type": "text/plain"
+        },
+        "value": {
+          "media-type": "application/json"
+        }
+      }
+    }
+  }
+}
+~~~
+2. Add the authentication mechanisms for the rest-connector endpoint in the `infinispan.xml` configuration file located in `$RHDG_HOME/server/conf/` directory:
+~~~
+      <endpoints socket-binding="default" security-realm="default">
+         <endpoint socket-binding="default" security-realm="default">
+           <hotrod-connector name="hotrod"/>
+           <rest-connector name="rest">
+              <authentication mechanisms="DIGEST BASIC" security-realm="default"/>
+           </rest-connector>
+         </endpoint>
+      </endpoints>
+~~~
 
 
 ## Quarkus basics
