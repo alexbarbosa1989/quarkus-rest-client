@@ -61,7 +61,7 @@ $RHDG_HOME/bin/server.sh
 ~~~
 git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
 ~~~
-5. Execute the application in dev mode (More options in [Quarkus basics]([https://github.com/alexbarbosa1989/quarkus-rest-client#packaging-and-running-the-application](https://github.com/alexbarbosa1989/quarkus-rest-client#quarkus-basics))) section):
+5. Execute the application in dev mode (More options in [Quarkus basics](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/README.md#quarkus-basics)) section):
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
