@@ -50,7 +50,21 @@ Json format:
          </endpoint>
       </endpoints>
 ~~~
-
+3. Create an user and start the data grid instance and start it:
+~~~
+$RHDG_HOME/bin/cli user create admin -p admin
+~~~
+~~~
+$RHDG_HOME/bin/server.sh
+~~~
+4. Clone the project:
+~~~
+git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
+~~~
+5. Execute the application in dev mode (More options in Quarkus basics):
+~~~
+./mvnw quarkus:dev
+~~~
 
 ## Quarkus basics
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
