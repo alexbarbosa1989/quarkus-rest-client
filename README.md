@@ -67,6 +67,15 @@ git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
+3. Use the exposes REST endpoint:
+   3.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
+   ~~~
+   curl -X POST --header 'Content-Type: application/json' -d '{ "firstName": "Sadio", "lastName": "Mané", "bornYear": "1992", "bornIn": "Senegal" }' http://localhost:8080/query/putData/person1
+   ~~~
+   3.b. Use the `query/getData/{key}` to put data in the external Data Grid cache:
+   ~~~
+   curl -X GET http://localhost:8080/query/getData/person1
+   ~~~
 
 ## Quarkus basics
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
