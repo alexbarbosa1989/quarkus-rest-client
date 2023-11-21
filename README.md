@@ -8,7 +8,7 @@ To achieve that, the application exposes two REST Endpoints:
 
 ## Basic application execution
 
-## Start and configure Data Grid
+## Configure and start the Data Grid server (Which exposes the REST API)
 1. Create the **person** cache in your Data Grid installation :
 ~~~
 <?xml version="1.0"?>
@@ -57,11 +57,13 @@ $RHDG_HOME/bin/cli user create admin -p admin
 ~~~
 $RHDG_HOME/bin/server.sh
 ~~~
-4. Clone the project:
+
+## Clone and execute the Quarkus application (rest-client)
+1. Clone the project:
 ~~~
 git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
 ~~~
-5. Execute the application in dev mode (More options in [Quarkus basics](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/README.md#quarkus-basics) section):
+2. Execute the application in dev mode (More options in [Quarkus basics](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/README.md#quarkus-basics) section):
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
