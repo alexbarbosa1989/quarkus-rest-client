@@ -22,18 +22,16 @@ To achieve that, the application exposes two REST Endpoints:
 Json format:
 ~~~
 {
-  "person": {
-    "distributed-cache": {
-      "owners": "2",
-      "mode": "SYNC",
-      "statistics": true,
-      "encoding": {
-        "key": {
-          "media-type": "text/plain"
-        },
-        "value": {
-          "media-type": "application/json"
-        }
+  "distributed-cache": {
+    "owners": "2",
+    "mode": "SYNC",
+    "statistics": true,
+    "encoding": {
+      "key": {
+        "media-type": "text/plain"
+      },
+      "value": {
+        "media-type": "application/json"
       }
     }
   }
