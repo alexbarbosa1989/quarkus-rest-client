@@ -1,0 +1,8 @@
+package com.example;
+
+message Person {
+   optional string firstName = 1;
+   optional string lastName = 2;
+   optional int32 bornYear = 3;
+   optional string bornIn = 4;
+}

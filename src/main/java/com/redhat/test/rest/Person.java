@@ -9,6 +9,10 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 
 @RegisterForReflection
 public class Person{
+
+    @JsonProperty("_type")
+    static final String _type = "com.example.Person";
+
     @JsonProperty("firstName")
     String firstName;
     
@@ -30,8 +34,9 @@ public class Person{
 
     @Override
     public String toString() {
-        return '{' +
-                " \"firstName\":\"" + firstName + '"' +
+        return '{' + 
+                " \"_type\":\"" + _type + '"' +
+                ", \"firstName\":\"" + firstName + '"' +
                 ", \"lastName\":\"" + lastName + '"' +
                 ", \"bornYear\":\"" + bornYear + '"' +
                 ", \"bornIn\":\"" + bornIn + '"' +

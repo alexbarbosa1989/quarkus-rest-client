@@ -56,10 +56,7 @@ public class QueryResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String queryPOST(Person person, @PathParam("key") String key) throws JsonProcessingException {
         String authHeader = "Basic " + Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
-
-        String personJson = objectMapper.writeValueAsString(person);
-        System.out.println("Convert Person POJO to JSON: "+personJson);
-        remoteServiceClient.postPerson(authHeader,key,personJson);
+        remoteServiceClient.postPerson(authHeader,key,person.toString());
         return "POST data in DG cache";
     }
 
