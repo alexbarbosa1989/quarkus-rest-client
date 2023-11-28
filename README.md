@@ -14,8 +14,8 @@ To achieve that, the application exposes two REST Endpoints:
 <?xml version="1.0"?>
 <distributed-cache name="person" owners="2" mode="SYNC" statistics="true">
 	<encoding>
-		<key media-type="text/plain"/>
-		<value media-type="application/json"/>
+		<key media-type="x-protostream/x-protostream"/>
+		<value media-type="x-protostream/x-protostream"/>
 	</encoding>
 </distributed-cache>
 ~~~
@@ -28,25 +28,29 @@ Json format:
     "statistics": true,
     "encoding": {
       "key": {
-        "media-type": "text/plain"
+        "media-type": "application/x-protostream"
       },
       "value": {
-        "media-type": "application/json"
+        "media-type": "application/x-protostream"
       }
     }
   }
 }
 ~~~
-2. Add the authentication mechanisms for the rest-connector endpoint in the `infinispan.xml` configuration file located in `$RHDG_HOME/server/conf/` directory:
+2. Add the authentication mechanisms for the rest-connector endpoint that includes `BASIC"` in the `infinispan.xml` configuration file located in `$RHDG_HOME/server/conf/` directory. Here is an example:
 ~~~
-      <endpoints socket-binding="default" security-realm="default">
-         <endpoint socket-binding="default" security-realm="default">
-           <hotrod-connector name="hotrod"/>
-           <rest-connector name="rest">
-              <authentication mechanisms="DIGEST BASIC" security-realm="default"/>
-           </rest-connector>
-         </endpoint>
-      </endpoints>
+        <endpoints>
+          <endpoint socket-binding="default" security-realm="default">
+                <hotrod-connector name="hotrod-default" socket-binding="default">
+                    <authentication security-realm="default">
+                        <sasl server-name="infinispan" mechanisms="SCRAM-SHA-512 SCRAM-SHA-384 SCRAM-SHA-256 SCRAM-SHA-1 DIGEST-SHA-512 DIGEST-SHA-384 DIGEST-SHA-256 DIGEST-SHA CRAM-MD5 DIGEST-MD5" qop="auth"/>
+                    </authentication>
+                </hotrod-connector>
+                <rest-connector name="rest-default" socket-binding="default">
+                    <authentication mechanisms="BASIC DIGEST" security-realm="default"/>
+                </rest-connector>
+          </endpoint>
+        </endpoints>
 ~~~
 3. Create an user and start the data grid instance and start it:
 ~~~
