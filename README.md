@@ -37,7 +37,7 @@ Json format:
   }
 }
 ~~~
-2. Add the authentication mechanisms for the rest-connector endpoint that includes `BASIC"` in the `infinispan.xml` configuration file located in `$RHDG_HOME/server/conf/` directory. Here is an example:
+2. Add the authentication mechanisms for the rest-connector endpoint that includes `BASIC` in the `infinispan.xml` configuration file located in `$RHDG_HOME/server/conf/` directory. Here is an example:
 ~~~
         <endpoints>
           <endpoint socket-binding="default" security-realm="default">
