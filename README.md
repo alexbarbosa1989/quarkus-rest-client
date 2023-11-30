@@ -91,7 +91,7 @@ dgserver.password=admin
    curl -X GET http://localhost:8080/query/getData/person1
    ~~~
 
-##
+## ____
 ## Quarkus basics
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
