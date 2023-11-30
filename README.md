@@ -69,7 +69,14 @@ git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
-3. Use the exposes REST endpoint:
+3. Update the application.properties file located in `main/src/main/resources/application.properties` with the credentials and Data Grid server URL. Here is the default provided in the current app:
+~~~
+quarkus.rest-client."com.redhat.test.rest.RemoteServiceClient".url=http://localhost:11222
+
+dgserver.username=admin
+dgserver.password=admin
+~~~
+4. Use the exposes REST endpoint:
    3.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
    ~~~
    curl -X POST --header 'Content-Type: application/json' -d '{ "firstName": "Sadio", "lastName": "Mané", "bornYear": "1992", "bornIn": "Senegal" }' http://localhost:8080/query/putData/person1
