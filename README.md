@@ -52,7 +52,7 @@ Json format:
           </endpoint>
         </endpoints>
 ~~~
-3. Create an user and start the data grid instance and start it:
+3. Create a user and start the Data Grid instance:
 ~~~
 $RHDG_HOME/bin/cli user create admin -p admin
 ~~~
@@ -65,24 +65,28 @@ $RHDG_HOME/bin/server.sh
 ~~~
 git clone -b main https://github.com/alexbarbosa1989/quarkus-rest-client
 ~~~
-2. Execute the application in dev mode (More options in [Quarkus basics](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/README.md#quarkus-basics) section):
+2. Upload `person.proto` schema provided in the app root directory to the running Data Grid server:
+~~~
+curl -u admin:admin -X POST --data-binary @./person.proto http://localhost:11222/rest/v2/caches/___protobuf_metadata/person.proto
+~~~
+3. Execute the application in dev mode (More options in [Quarkus basics](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/README.md#quarkus-basics) section):
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
-3. Update the application.properties file located in `main/src/main/resources/application.properties` with the credentials and Data Grid server URL. Here is the default provided in the current app:
+4. Update the application.properties file located in `main/src/main/resources/application.properties` with the credentials and Data Grid server URL. Here is the default provided in the current app:
 ~~~
 quarkus.rest-client."com.redhat.test.rest.RemoteServiceClient".url=http://localhost:11222
 
 dgserver.username=admin
 dgserver.password=admin
 ~~~
-4. Use the exposes REST endpoint:
+5. Use the exposes REST endpoint:
    
-   4.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
+   5.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
    ~~~
    curl -X POST --header 'Content-Type: application/json' -d '{ "firstName": "Sadio", "lastName": "Mané", "bornYear": "1992", "bornIn": "Senegal" }' http://localhost:8080/query/putData/person1
    ~~~
-   4.b. Use the `query/getData/{key}` to put data in the external Data Grid cache:
+   5.b. Use the `query/getData/{key}` to put data in the external Data Grid cache:
    ~~~
    curl -X GET http://localhost:8080/query/getData/person1
    ~~~
