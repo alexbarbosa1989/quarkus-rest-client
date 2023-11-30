@@ -77,11 +77,11 @@ dgserver.username=admin
 dgserver.password=admin
 ~~~
 4. Use the exposes REST endpoint:
-   3.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
+   4.a. Use the `query/putData/{key}` to put data in the external Data Grid cache:
    ~~~
    curl -X POST --header 'Content-Type: application/json' -d '{ "firstName": "Sadio", "lastName": "Mané", "bornYear": "1992", "bornIn": "Senegal" }' http://localhost:8080/query/putData/person1
    ~~~
-   3.b. Use the `query/getData/{key}` to put data in the external Data Grid cache:
+   4.b. Use the `query/getData/{key}` to put data in the external Data Grid cache:
    ~~~
    curl -X GET http://localhost:8080/query/getData/person1
    ~~~
