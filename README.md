@@ -73,7 +73,7 @@ curl -u admin:admin -X POST --data-binary @./person.proto http://localhost:11222
 ~~~
 ./mvnw compile quarkus:dev
 ~~~
-4. Update the application.properties file located in `main/src/main/resources/application.properties` with the credentials and Data Grid server URL. Here is the default provided in the current app:
+4. Update the application.properties file located in [`main/src/main/resources/application.properties`](https://github.com/alexbarbosa1989/quarkus-rest-client/blob/main/src/main/resources/application.properties) with the credentials and Data Grid server URL. Here is the default provided in the current app:
 ~~~
 quarkus.rest-client."com.redhat.test.rest.RemoteServiceClient".url=http://localhost:11222
 
