@@ -136,6 +136,11 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
+For Openshift deployment (Optional if require to trust Openshift cert `quarkus.kubernetes-client.trust-certs=true`):
+```
+./mvnw install -Dquarkus.openshift.deploy=true -Dquarkus.kubernetes-client.trust-certs=true
+```
+
 You can then execute your native executable with: `./target/dg-client-1.0-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
